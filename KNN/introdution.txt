@@ -1,0 +1,4 @@
+Thuật toán KNN (K-Nearest Neighbors) là một thuật toán học có giám sát trong machine learning,
+được sử dụng phổ biến trong các bài toán phân loại. 
+Thuật toán KNN dựa trên việc so sánh khoảng cách giữa các điểm dữ liệu để tìm ra K điểm gần nhất với điểm đang được xét, 
+sau đó dựa trên nhãn lớp của các điểm gần nhất để dự đoán nhãn lớp của điểm đang xét.

@@ -15,16 +15,6 @@ b_0 = mean_y - b_1*mean_x               # hệ số hồi quy b_0 (điểm cắt
 
 # nếu hệ số hồi quy b_1 dương, tức là khi x tăng thì y cũng tăng, và nếu b_1 âm thì khi x tăng thì y giảm.
 
-
-"""
-hệ số hồi quy tuyến tính b_0 và b_1 bằng cách sử dụng công thức hồi quy tuyến tính trên dữ liệu đầu vào và đầu ra.
-Trong đó:
-n là số lượng dữ liệu.
-mean_x và mean_y là giá trị trung bình của X và Y.
-SS_xy là tổng bình phương của sự sai khác giữa X và Y.
-SS_xx là tổng bình phương của sự sai khác giữa X và giá trị trung bình của X.
-"""
-
 # Predict the values
 Y_pred = b_0 + b_1*X                   
 
@@ -33,6 +23,12 @@ Y_pred là một vector (một mảng 1 chiều) lưu trữ các giá trị đư
 Tức là, với mỗi giá trị của biến độc lập x trong tập dữ liệu huấn luyện, mô hình sẽ dự đoán một giá trị tương ứng cho biến phụ thuộc y, 
 và Y_pred sẽ lưu trữ các giá trị dự đoán này.
 """
+
+y1 = b_0 + b_1*155
+y2 = b_0 + b_1*160 
+
+print( u'Predict weight of person with height 155 cm: %.2f (kg), real number: 52 (kg)'  %(y1) )
+print( u'Predict weight of person with height 160 cm: %.2f (kg), real number: 56 (kg)'  %(y2) )
 
 # Plot the regression line
 plt.scatter(X, Y)

@@ -5,7 +5,7 @@ train_data = [(2, 3), (3, 4), (4, 2), (4, 4), (1, 2), (2, 1)]
 train_labels = ['A', 'A', 'A', 'B', 'B', 'B']
 
 # Định nghĩa một điểm mới
-test_point = (3, 3)
+test_point = (2,3)
 
 #  định nghĩa số lượng điểm láng giềng cần tìm kiếm (K) để dự đoán nhãn lớp cho điểm mới.
 k = 3
@@ -20,10 +20,11 @@ Khoảng cách Euclid được tính bằng căn bậc hai của tổng bình ph
 """
 
 # Tìm K điểm khoảng cách láng giềng với các điểm mới của test point 
-distances = [] # lưu các khoảng cách mỗi điểm huấn luyện với điểm mới.
-for i, point in enumerate(train_data):                  # enumerate cho phép lắp và điếm số lần lặp
+distances = []                                          # lưu các khoảng cách mỗi điểm huấn luyện với điểm mới.
+for i, point in enumerate(train_data):                  # enumerate cho phép lặp và điếm số lần lặp
     distance = euclidean_distance(point, test_point)    # tính khoảng cách giữa từng cặp huấn luyện với điểm cũ
     distances.append((distance, i))                     # Thêm khoảng cách vừa tính vào cuối danh sách distances
+    distances.append((distance, i)) 
 distances.sort()                                        # Sắp xếp danh sách distances theo thứ tự tăng dần
 neighbors = [train_labels[i] for _, i in distances[:k]] 
 # chọn ra K điểm láng giềng gần nhất bằng cách lấy k phần tử đầu tiên của danh sách distances và trích xuất nhãn lớp tương ứng của chúng từ danh sách train_labels.

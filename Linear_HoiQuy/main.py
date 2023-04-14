@@ -3,17 +3,18 @@ import matplotlib.pyplot as plt
 
 # Tập dữ liệu 
 X = np.array([147, 150, 153, 158, 163, 165, 168, 170, 173, 175, 178, 180, 183]) # chiều cao
-Y = np.array([ 49, 50, 51,  54, 58, 59, 60, 62, 63, 64, 66, 67, 68])  # cân nặng
+Y = np.array([49, 50, 51,  54, 58, 59, 60, 62, 63, 64, 66, 67, 68])  # cân nặng
 
 # Tính toán hệ số hồi quy tuyến tính
 n = np.size(X)                          # số lượng dự liệu đầu vào 
-mean_x, mean_y = np.mean(X), np.mean(Y) # giá trị trung bình của X và Y 
-SS_xy = np.sum(Y*X) - n*mean_y*mean_x   # tổng bình phương của sự sai số khác giữa X và Y
+mean_x = np.mean(X)                     # giá trị trung bình của X
+mean_y = np.mean(Y)                     # giá trị trung bình của Y 
+SS_xy = np.sum(Y*X) - n*mean_y*mean_x   # tổng bình phương của sự sai số khác giữa giá trị trung bình X và Y
 SS_xx = np.sum(X*X) - n*mean_x*mean_x   # tổng bình phương sự sai khác giữa X và giá trị trung bình của X 
+
 b_1 = SS_xy / SS_xx                     # hệ số hồi quy b_1 ( độ dốc ) là gì là đại lượng biểu thị mức độ tăng giảm của biến phụ thuộc (được dự đoán) y khi biến độc lập x tăng lên 1 đơn vị.
 b_0 = mean_y - b_1*mean_x               # hệ số hồi quy b_0 (điểm cắt) là  là giá trị của y khi x = 0
 
-# nếu hệ số hồi quy b_1 dương, tức là khi x tăng thì y cũng tăng, và nếu b_1 âm thì khi x tăng thì y giảm.
 
 # Predict the values
 Y_pred = b_0 + b_1*X                   
